@@ -10,12 +10,21 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style>
+    div {
+      margin: 25px;
+    }
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
         -webkit-user-select: none;
         -moz-user-select: none;
         user-select: none;
+      }
+      table, th, td,canvas {
+      padding: 10px;
+      border: 1px solid black;
+      border-collapse: collapse;
       }
 
       @media (min-width: 768px) {
@@ -34,22 +43,32 @@
 <title>
   <a> Ruche connectée </a>
 </title>
-
-<header>
-  <h1> Ruche connectée </h1>
-</header>
+<div class="p-3 mb-2 bg-secondary text-white">
+  <header>
+    <p style="float:right"><img src="C:\Users\Isabelle\Desktop\ruche.bmp" /></p>
+    <h1> Ruche connectée </h1>
+    <h4> Projet  1A - Phelma </h4>
+  </header>
+</div>
   <div class="container">
-      <canvas id="myChart" width="1000" height="400"></canvas>
+    <div class="p-3 mb-2 bg-secondary text-white">
+    <h2> Evolution du poids de la ruche </h2>
+    </div>
+      <div>
+        <canvas id="myChart" width="1000" height="400"></canvas>
+      </div>
 
+    <div class="p-3 mb-2 bg-secondary text-white">
       <h2> Votre ruche ces dernières heures </h2>
+    </div>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th>Heure</th>
-              <th>Température</th>
-              <th>Humidité</th>
-              <th>Poids</th>
+              <th><h5>Heure</h5></th>
+              <th><h5>Température</h5></th>
+              <th><h5>Humidité</h5></th>
+              <th><h5>Poids</h5></th>
             </tr>
           </thead>
           <tbody>
@@ -151,8 +170,6 @@
             </tr>
           </tbody>
         </table>
-        <br>
-        <button class="btn btn-danger">Salut</button>
       </div>
     </main>
   </div>
