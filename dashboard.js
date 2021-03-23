@@ -101,7 +101,7 @@
     type: 'line',
     data: {
       labels: [
-        'Dimanche',
+        '1',
         'Lundi',
         'Mardi',
         'Mercredi',
