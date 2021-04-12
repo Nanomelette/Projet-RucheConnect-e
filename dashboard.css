@@ -134,3 +134,11 @@ body {
   border: 1px solid #ccc;
   border-top: none;
 }
+
+.graph{
+  position: absolute;
+  display: inline-block;
+  left: 1%;
+  right: 50%;
+  top: 50%;
+}
