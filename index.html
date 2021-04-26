@@ -34,30 +34,50 @@
   }
   </style>
 
-
   <!-- Custom styles for this template -->
   <link href="dashboard.css" rel="stylesheet">
-</head>
+  <div id="div_horloge"></div>
+
+  <script type="text/javascript">
+  window.onload=function() {
+    horloge('div_horloge');
+  };
+
+  function horloge(el) {
+    if(typeof el=="string") { el = document.getElementById(el); }
+    function actualiser() {
+      var date = new Date();
+      var str = date.getHours();
+      str += ':'+(date.getMinutes()<10?'0':'')+date.getMinutes();
+      str += ':'+(date.getSeconds()<10?'0':'')+date.getSeconds();
+      el.innerHTML = str;
+  }
+  actualiser();
+  setInterval(actualiser,1000);
+}
+</script>
+  </head>
   <script type="text/javascript" src="dashboard.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart1);
-      google.charts.setOnLoadCallback(drawChart2);
       google.charts.setOnLoadCallback(drawChart3);
       google.charts.setOnLoadCallback(drawChart4);
 
       function drawChart1() {
         var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales'],
-          ['2004',  1200],
-          ['2005',  1170],
-          ['2006',  660],
-          ['2007',  1030]
-        ]);
+          ['Heures', 'Poids'],
+          ['16h',  1200],
+          ['17h',  1170],
+          ['18h',  660],
+          ['19h',  1030],
+          ['20h',  1209],
+          ['21h',  1256],
+          ['22h',  1267],
+          ]);
 
         var options = {
-          title: 'Company Performance',
           curveType: 'function',
           'width':1000,
           'height':500,
@@ -67,40 +87,16 @@
 
         chart.draw(data, options);
       }
-      function drawChart2() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales'],
-          ['2004',  1200],
-          ['2005',  1170],
-          ['2006',  660],
-          ['2007',  1030]
-        ]);
-
-        var options = {
-          title: 'Company Performance',
-          curveType: 'function',
-          'width':1000,
-          'height':500,
-          vAxis: {
-            scaleType: 'none'
-          }
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart2'));
-
-        chart.draw(data, options);
-      }
       function drawChart3() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Sales'],
-          ['2004',  1200],
+          ['1',  1200],
           ['2005',  1170],
           ['2006',  660],
           ['2007',  1030]
         ]);
 
         var options = {
-          title: 'Company Performance',
           curveType: 'function',
           'width':1000,
           'height':500,
@@ -120,7 +116,6 @@
         ]);
 
         var options = {
-          title: 'Company Performance',
           curveType: 'function',
           'width':1000,
           'height':500,
@@ -140,6 +135,10 @@
     <h4> Projet  1A - Phelma </h4>
   </header>
 </div>
+<div>
+  <span id="date_heure"></span>
+  <script type="text/javascript" src = "dashboard.js">window.onload = date_heure('date_heure');</script>
+</div>
 <div class="container">
   <div class="p-3 mb-2 bg-secondary text-light">
     <h2> Evolution du poids de la ruche </h2>
@@ -147,7 +146,6 @@
   <div class="tab bg-light text-light">
     <script src="dashboard.js"></script>
     <button class="tablinks" onclick="openCity(event, '24h')"> Ces dernières 24h </button>
-    <button class="tablinks" onclick="openCity(event, 'semaine')"> Cette semaine </button>
     <button class="tablinks" onclick="openCity(event, 'mois')"> Ce mois </button>
     <button class="tablinks" onclick="openCity(event, 'année')"> Cette année </button>
 
@@ -156,11 +154,6 @@
   <div id="24h" class="tabcontent">
     <h3>Ces dernières 24h</h3>
     <div id="curve_chart1" style="position: relative; left: -80px; top: -30px; width: 1000px; height: 500px"></div>
-  </div>
-
-  <div id="semaine" class="tabcontent">
-    <h3>Cette semaine</h3>
-    <div id="curve_chart2" style="position: relative; left: -80px; top: -30px; width: 1000px; height: 500px"></div>
   </div>
 
   <div id="mois" class="tabcontent">
