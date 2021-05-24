@@ -45,3 +45,8 @@ xhr.onreadystatechange = function() {
   }
 };
 xhr.send();
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "ajax": "data/arrays.txt"
+    } );
+} );
