@@ -1,5 +1,8 @@
 body {
   font-size: .875rem;
+  width: 500px;
+  height: 1400px;
+  margin: 0 auto;
 }
 
 .feather {
@@ -15,15 +18,11 @@ body {
 .sidebar {
   position: fixed;
   top: 0;
-  /* rtl:raw:
   right: 0;
-  */
   bottom: 0;
-  /* rtl:remove */
-  left: 0;
   z-index: 100; /* Behind the navbar */
   padding: 48px 0 0; /* Height of navbar */
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  box-shadow: inset 1px 0 0 rgba(0, 0, 0, .1);
 }
 
 @media (max-width: 767.98px) {
@@ -47,7 +46,7 @@ body {
 }
 
 .sidebar .nav-link .feather {
-  margin-right: 4px;
+  margin-left: 4px;
   color: #727272;
 }
 
@@ -70,16 +69,16 @@ body {
  */
 
 .navbar-brand {
-  padding-top: .75rem;
   padding-bottom: .75rem;
+  padding-top: .75rem;
   font-size: 1rem;
   background-color: rgba(0, 0, 0, .25);
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+  box-shadow: inset 1px 0 0 rgba(0, 0, 0, .25);
 }
 
 .navbar .navbar-toggler {
   top: .25rem;
-  right: 1rem;
+  left: 1rem;
 }
 
 .navbar .form-control {
@@ -97,56 +96,4 @@ body {
 .form-control-dark:focus {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
-}
-
-/* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
-
-/* Style the buttons that are used to open the tab content */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-
-.graph{
-  position: absolute;
-  display: inline-block;
-  left: 1%;
-  right: 50%;
-  top: 50%;
-}
-
-#scrollUp
-{
-position: fixed;
-bottom : 10px;
-right: -100px;
-opacity: 0.5;
 }
