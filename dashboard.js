@@ -37,16 +37,19 @@ jQuery(function(){
 
 var xhr = new XMLHttpRequest();
 var données = [];
+xhr.responseType = 'text';
 xhr.open('GET', 'http://ruche.com/data', true);
 xhr.onreadystatechange = function() {
   if (xhr.readyState === 4) {
-    données = xhr.respondeText;
-    alert(xhr.responseText);
+    données = xhr.responseText;
+    console.log(xhr.response);
+    console.log(xhr.responseText);
+    //alert(xhr.responseText);
   }
 };
 xhr.send();
 $(document).ready(function() {
     $('#example').DataTable( {
-        "ajax": "data/arrays.txt"
+        "ajax": "data/BDD.txt"
     } );
 } );
