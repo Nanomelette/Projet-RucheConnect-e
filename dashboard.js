@@ -72,25 +72,24 @@ fetch('http://2.7.79.73.fr:8080/data')
 function appendData(data) {
   var mainContainer = document.getElementById("test");
   for (var i = 0; i < data.length; i++) {
-    var tr = document.createElement("tr");
+    var second = document.createElement("tr");
 
     // var th = document.createElement("th");
     // th.innerHTML = data[i].time;
     // mainContainer.appendChild(th);
 
-    var th = document.createElement("th");
+    var th1 = document.createElement("th");
     th.innerHTML = data[i].weight;
-    mainContainer.appendChild(th);
+    second.appendChild(th1);
 
-    var th = document.createElement("th");
+    var th2 = document.createElement("th");
     th.innerHTML = data[i].temp;
-    mainContainer.appendChild(th);
+    second.appendChild(th2);
 
-    var th = document.createElement("th");
+    var th3 = document.createElement("th");
     th.innerHTML = data[i].humidity;
-    mainContainer.appendChild(th);
+    second.appendChild(th3);
 
-    mainContainer.appendChild(tr);
-    ;
+    mainContainer.appendChild(second);
   }
 }
