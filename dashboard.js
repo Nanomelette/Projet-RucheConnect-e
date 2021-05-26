@@ -35,43 +35,56 @@ jQuery(function(){
     });
 });
 
-var xhr = new XMLHttpRequest();
-var données = [];
-xhr.responseType = 'text';
-xhr.open('GET', 'http://2.7.79.73.fr:8080/data');
-xhr.setRequestHeader("Access-Control-Allow-Origin","*");
-xhr.onreadystatechange = function() {
-  if (xhr.readyState === 1) {
-    données = xhr.responseText;
-    console.log(xhr.response);
-    console.log(xhr.responseText);
-    alert(xhr.responseText);
-  }
+let donnees;
+function req() {
+   console.log(this.responseText);
+   donnees = JSON.parse(this.responseText);
+   appendData(donnees);
 };
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://2.7.79.73:8080/data");
+xhr.onload = req;
 xhr.send();
-$(document).ready(function() {
-    $('#example').DataTable( {
-        "ajax": "data"
-    } );
-} );
+
+// var xhr = new XMLHttpRequest();
+// xhr.responseType = 'text';
+// xhr.open('GET', 'http://2.7.79.73.fr:8080/data', true);
+// xhr.setRequestHeader("Allow","*/*");
+// xhr.onreadystatechange = function() {
+//   if (xhr.readyState == 4 && xhr.state == 200) {
+//     var donnees = xhr.responseText;
+//     console.log(xhr.response);
+//     console.log(xhr.responseText);
+//     appendData(donnees);
+//   }
+// };
+// xhr.send();
+// $(document).ready(function() {
+//     $('#example').DataTable( {
+//         "ajax": "data"
+//     } );
+// } );
+
+// var myInit = { method: 'GET',
+//                mode: 'cors',
+//                cache: 'default' };
+//
+// fetch('http://2.7.79.73.fr:8080/data',myInit)
+//   .then(function(response){ //JSON data arrive here
+//     return response.json();
+//   })
+//   .then(function(data){
+//     appendData(data);
+//
+//   })
+//   .catch(function(err){// if an error occurs
+//     console.log(err);
+//   })
 
 
-
-fetch('http://2.7.79.73.fr:8080/data')
-  .then(function(response){ //JSON data arrive here
-    return response.json();
-  })
-  .then(function(data){
-    appendData(data);
-
-  })
-  .catch(function(err){// if an error occurs
-    console.log(err);
-  })
-
-function appendData(data) {
+function appendData(donnee) {
   var mainContainer = document.getElementById("test");
-  for (var i = 0; i < data.length; i++) {
+  for (var i = 0; i < 12; i++) {
     var second = document.createElement("tr");
 
     // var th = document.createElement("th");
@@ -79,15 +92,15 @@ function appendData(data) {
     // mainContainer.appendChild(th);
 
     var th1 = document.createElement("th");
-    th.innerHTML = data[i].weight;
+    th1.innerHTML = donnee[i].weight;
     second.appendChild(th1);
 
     var th2 = document.createElement("th");
-    th.innerHTML = data[i].temp;
+    th2.innerHTML = donnee[i].temp;
     second.appendChild(th2);
 
     var th3 = document.createElement("th");
-    th.innerHTML = data[i].humidity;
+    th3.innerHTML = donnee[i].humidity;
     second.appendChild(th3);
 
     mainContainer.appendChild(second);

@@ -72,20 +72,27 @@
 
       function drawChart1() {
         var data = google.visualization.arrayToDataTable([
-          ['Heures', 'Poids'],
-          ['16h',  1200],
-          ['17h',  1170],
-          ['18h',  660],
-          ['19h',  1030],
-          ['20h',  1209],
-          ['21h',  1256],
-          ['22h',  1267],
+          ['Heures', 'Poids', 'Température', 'Humidité'],
+          ['13h',  donnees[11].weight, donnees[11].temp, donnees[11].humidity],
+          ['14h',  donnees[10].weight, donnees[10].temp, donnees[10].humidity],
+          ['15h',  donnees[9].weight, donnees[9].temp, donnees[9].humidity],
+          ['16h',  donnees[8].weight, donnees[8].temp, donnees[8].humidity],
+          ['17h',  donnees[7].weight, donnees[7].temp, donnees[7].humidity],
+          ['18h',  donnees[6].weight, donnees[6].temp, donnees[6].humidity],
+          ['19h',  donnees[5].weight, donnees[5].temp, donnees[5].humidity],
+          ['20h',  donnees[4].weight, donnees[4].temp, donnees[4].humidity],
+          ['21h',  donnees[3].weight, donnees[3].temp, donnees[3].humidity],
+          ['22h',  donnees[2].weight, donnees[2].temp, donnees[2].humidity],
+          ['23h',  donnees[1].weight, donnees[1].temp, donnees[1].humidity],
+          ['24h',  donnees[0].weight, donnees[0].temp, donnees[0].humidity],
           ]);
 
         var options = {
           curveType: 'function',
           'width':1000,
           'height':500,
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart1'));
@@ -93,6 +100,7 @@
         chart.draw(data, options);
       }
       function drawChart3() {
+
         var data = google.visualization.arrayToDataTable([
           ['Jour', 'Poids'],
           ['1',  1200],
@@ -166,6 +174,7 @@
 
         chart.draw(data, options);
       }
+
     </script>
 <title>
   <a> Ruche connectée </a>
@@ -176,16 +185,11 @@
     <h4> Projet  1A - Phelma </h4>
   </header>
 </div>
-<div>
-  <span id="date_heure"></span>
-  <script type="text/javascript" src = "dashboard.js">window.onload = date_heure('date_heure');</script>
-</div>
 <div class="container">
   <div class="p-3 mb-2 bg-secondary text-light">
     <h2> Evolution du poids de la ruche </h2>
   </div>
   <div class="tab bg-light text-light">
-    <script src="dashboard.js"></script>
     <button class="tablinks" onclick="openCity(event, '24h')"> Ces dernières heures </button>
     <button class="tablinks" onclick="openCity(event, 'mois')"> Ce mois </button>
     <button class="tablinks" onclick="openCity(event, 'année')"> Cette année </button>
@@ -236,9 +240,9 @@
           <thead>
               <tr>
                 <!-- <th><h5>Heure</h5></th> -->
+                <th><h5>Poids</h5></th>
                 <th><h5>Température</h5></th>
                 <th><h5>Humidité</h5></th>
-                <th><h5>Poids</h5></th>
               </tr>
           </thead>
           <tbody id="test">
@@ -248,7 +252,7 @@
     </div>
 </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
 
 </body>
 </html>
