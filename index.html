@@ -72,19 +72,18 @@
 
       function drawChart1() {
         var data = google.visualization.arrayToDataTable([
-          ['Heures', 'Poids', 'Température', 'Humidité'],
-          ['13h',  donnees[11].weight, donnees[11].temp, donnees[11].humidity],
-          ['14h',  donnees[10].weight, donnees[10].temp, donnees[10].humidity],
-          ['15h',  donnees[9].weight, donnees[9].temp, donnees[9].humidity],
-          ['16h',  donnees[8].weight, donnees[8].temp, donnees[8].humidity],
-          ['17h',  donnees[7].weight, donnees[7].temp, donnees[7].humidity],
-          ['18h',  donnees[6].weight, donnees[6].temp, donnees[6].humidity],
-          ['19h',  donnees[5].weight, donnees[5].temp, donnees[5].humidity],
-          ['20h',  donnees[4].weight, donnees[4].temp, donnees[4].humidity],
-          ['21h',  donnees[3].weight, donnees[3].temp, donnees[3].humidity],
-          ['22h',  donnees[2].weight, donnees[2].temp, donnees[2].humidity],
-          ['23h',  donnees[1].weight, donnees[1].temp, donnees[1].humidity],
-          ['24h',  donnees[0].weight, donnees[0].temp, donnees[0].humidity],
+          ['Heures', 'Poids', 'Température'], //'Humidité'],
+          ['23h',  donnees[donnees.length-1].weight, donnees[donnees.length-1].temp], //donnees[10].humidity],
+          ['1h',  donnees[donnees.length-2].weight, donnees[donnees.length-2].temp], //donnees[9].humidity],
+          ['2h',  donnees[donnees.length-3].weight, donnees[donnees.length-3].temp], //donnees[8].humidity],
+          ['3h',  donnees[donnees.length-4].weight, donnees[donnees.length-4].temp], //donnees[7].humidity],
+          ['4h',  donnees[donnees.length-5].weight, donnees[donnees.length-5].temp], //donnees[6].humidity],
+          ['5h',  donnees[donnees.length-6].weight, donnees[donnees.length-6].temp], //donnees[5].humidity],
+          ['6h',  donnees[donnees.length-7].weight, donnees[donnees.length-7].temp], //donnees[4].humidity],
+          ['7h',  donnees[donnees.length-8].weight, donnees[donnees.length-8].temp], //donnees[3].humidity],
+          ['8h',  donnees[donnees.length-9].weight, donnees[donnees.length-9].temp], //donnees[2].humidity],
+          ['9h',  donnees[donnees.length-10].weight, donnees[donnees.length-10].temp], //donnees[1].humidity],
+          ['10h',  donnees[donnees.length-11].weight, donnees[donnees.length-11].temp],// donnees[0].humidity],
           ]);
 
         var options = {
@@ -92,7 +91,7 @@
           'width':1000,
           'height':500,
           hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0}
+          vAxis: { minValue: 0}
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart1'));
@@ -242,7 +241,7 @@
                 <!-- <th><h5>Heure</h5></th> -->
                 <th><h5>Poids</h5></th>
                 <th><h5>Température</h5></th>
-                <th><h5>Humidité</h5></th>
+                <!--<th><h5>Humidité</h5></th> -->
               </tr>
           </thead>
           <tbody id="test">

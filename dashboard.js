@@ -84,7 +84,7 @@ xhr.send();
 
 function appendData(donnee) {
   var mainContainer = document.getElementById("test");
-  for (var i = 0; i < 12; i++) {
+  for (var i = 10; i < 22; i++) {
     var second = document.createElement("tr");
 
     // var th = document.createElement("th");
@@ -99,9 +99,9 @@ function appendData(donnee) {
     th2.innerHTML = donnee[i].temp;
     second.appendChild(th2);
 
-    var th3 = document.createElement("th");
-    th3.innerHTML = donnee[i].humidity;
-    second.appendChild(th3);
+    //var th3 = document.createElement("th");
+    //th3.innerHTML = donnee[i].humidity;
+    //second.appendChild(th3);
 
     mainContainer.appendChild(second);
   }
